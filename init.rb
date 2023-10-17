@@ -1,8 +1,8 @@
 Redmine::Plugin.register :cti_plugin do
-  name 'Cti Plugin plugin'
-  author 'Author name'
-  description 'This is a plugin for Redmine'
+  name 'CTI Plugin MMulheres'
+  author 'CTI Equipe'
+  description 'Este é um plugin do Redmine, feito pela equipe da CTI do Ministério das Mulheres'
   version '0.0.1'
-  url 'http://example.com/path/to/plugin'
+  url 'https://github.com/clelsonsalles/cti_plugin/'
   author_url 'http://example.com/about'
 end
