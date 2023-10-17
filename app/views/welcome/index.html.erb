@@ -6,7 +6,7 @@
     <%= textilizable Setting.welcome_text %>
   </div>
   <%= call_hook(:view_welcome_index_left) %>
-</div>
+
 
 
         <div class="bg-primary pt-10 pb-21"></div>
@@ -20,7 +20,7 @@
   <% projetos = Project.where(parent_id: nil) %>
   <% for project in projetos %>
     <% if project.is_public? %>
-                    <h3 class="mb-0 fw-bold text-white"><%= project.name %></h3>
+                    <h3 class="mb-0 fw-bold"><%= project.name %></h3>
                   </div>
                 </div>
               </div>
@@ -457,6 +457,7 @@
       </div>
     </div>
 
+</div>
 
 <div class="splitcontentright">
   <% if @news.any? %>
