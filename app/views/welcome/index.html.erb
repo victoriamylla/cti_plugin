@@ -26,8 +26,9 @@
               </div>
             </div>
     <% end %>
-  <% end %>
-
+    <% subprojects = project.children.visible.to_a %>
+      <% if subprojects.any? %>
+    	  <% subprojects.each do |subProject| %>
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
               <!-- card -->
               <div class="card bg-success rounded-3">
@@ -37,7 +38,9 @@
                   <div class="d-flex justify-content-between align-items-center
                     mb-3">
                     <div>
-                      <h4 class="text-white">KR1</h4>
+                      <h4 class="text-white">    	  
+                        <%= link_to(subProject.name, project_path(subProject), :class => subProject.css_classes).html_safe %>
+                      </h4>
                     </div>
                    
                   </div>
@@ -50,6 +53,12 @@
                 </div>
               </div>
             </div>
+    
+    	  <% end %> 
+      <% end %>
+    <% end %>
+  <% end %>
+
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
               <!-- card -->
               <div class="card rounded-3">
