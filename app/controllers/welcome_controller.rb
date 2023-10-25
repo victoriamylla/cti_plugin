@@ -29,13 +29,13 @@ class WelcomeController < ApplicationController
     @krProjeto = nil
     
     if params[:monitoramentoId].present
-      @monitoramentoProjeto = Project.find(params[:monitoramentoId)
+      @monitoramentoProjeto = Project.find(params[:monitoramentoId])
     end
     if params[:objetivoId].present
-      @objetivoProjeto = Project.find(params[:objetivoId)
+      @objetivoProjeto = Project.find(params[:objetivoId])
     end
     if params[:krId].present
-      @krProjeto = Project.find(params[:krId)
+      @krProjeto = Project.find(params[:krId])
     end
   end
 
