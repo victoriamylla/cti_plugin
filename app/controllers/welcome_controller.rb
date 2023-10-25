@@ -24,6 +24,19 @@ class WelcomeController < ApplicationController
 
   def index
     @news = News.latest User.current
+    @monitoramentoProjeto = nil
+    @objetivoProjeto = nil
+    @krProjeto = nil
+    
+    if params[:monitoramentoId].present
+      @monitoramentoProjeto = Project.find(params[:monitoramentoId)
+    end
+    if params[:objetivoId].present
+      @objetivoProjeto = Project.find(params[:objetivoId)
+    end
+    if params[:krId].present
+      @krProjeto = Project.find(params[:krId)
+    end
   end
 
   def robots
