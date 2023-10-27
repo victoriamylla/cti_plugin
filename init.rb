@@ -5,4 +5,11 @@ Redmine::Plugin.register :cti_plugin do
   version '0.0.1'
   url 'https://github.com/clelsonsalles/cti_plugin/'
   author_url 'http://example.com/about'
+
+  settings :default => {
+    :projetoId_inicial => "projeto_configuracao_redmine",
+    :objetivoId_inicial => "portifolio_projetos",
+    :krId_inicial => "projetos_tipos"
+  }, :partial => 'cti_plugin/configuracao_plugin'
+
 end
