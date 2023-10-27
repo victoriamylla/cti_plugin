@@ -24,18 +24,21 @@ class WelcomeController < ApplicationController
 
   def index
     @news = News.latest User.current
-    @monitoramentoProjeto = nil
-    @objetivoProjeto = nil
-    @krProjeto = nil
+    # @monitoramentoProjeto = nil
+    @monitoramentoProjeto = Project.find(<%= textilizable Setting.projetoId_inicial %>)
+    @objetivoProjeto = Project.find(<%= textilizable Setting.objetivoId_inicial %>)
+    @krProjeto =  Project.find(<%= textilizable Setting.krId_inicial %>)
     
     if params[:monitoramentoId].present?
       @monitoramentoProjeto = Project.find(params[:monitoramentoId])
     end
     if params[:objetivoId].present?
       @objetivoProjeto = Project.find(params[:objetivoId])
+      @monitoramentoProjeto = @objetivoProjeto.parent.id
     end
     if params[:krId].present?
       @krProjeto = Project.find(params[:krId])
+      @objetivoProjeto = @krProjeto.parent.id
     end
   end
 
