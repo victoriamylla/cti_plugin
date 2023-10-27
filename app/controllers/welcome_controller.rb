@@ -33,13 +33,13 @@ class WelcomeController < ApplicationController
     end
     if params[:objetivoId].present?
       @objetivoProjeto = Project.find(params[:objetivoId])
-      @monitoramentoProjeto = @objetivoProjeto.parent.id
+      @monitoramentoProjeto = @objetivoProjeto.parent
     else
       @objetivoProjeto = Project.find(Setting.plugin_cti_plugin['objetivoId_inicial'])
     end
     if params[:krId].present?
       @krProjeto = Project.find(params[:krId])
-      @objetivoProjeto = @krProjeto.parent.id
+      @objetivoProjeto = @krProjeto.parent
     else
       @krProjeto =  Project.find(Setting.plugin_cti_plugin['krId_inicial'])
     end
