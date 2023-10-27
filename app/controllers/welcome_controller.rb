@@ -25,9 +25,9 @@ class WelcomeController < ApplicationController
   def index
     @news = News.latest User.current
     # @monitoramentoProjeto = nil
-    @monitoramentoProjeto = Project.find(<%= textilizable Setting.projetoId_inicial %>)
-    @objetivoProjeto = Project.find(<%= textilizable Setting.objetivoId_inicial %>)
-    @krProjeto =  Project.find(<%= textilizable Setting.krId_inicial %>)
+    @monitoramentoProjeto = Project.find(Setting.plugin_cti_plugin['projetoId_inicial'])
+    @objetivoProjeto = Project.find(Setting.plugin_cti_plugin['objetivoId_inicial'])
+    @krProjeto =  Project.find(Setting.plugin_cti_plugin['krId_inicial'])
     
     if params[:monitoramentoId].present?
       @monitoramentoProjeto = Project.find(params[:monitoramentoId])
