@@ -7,9 +7,9 @@ Redmine::Plugin.register :cti_plugin do
   author_url 'http://example.com/about'
 
   settings :default => {
-    :projetoId_inicial => "projeto_configuracao_redmine",
-    :objetivoId_inicial => "portifolio_projetos",
-    :krId_inicial => "projetos_tipos"
+    :projetoId_inicial => "projetoId_inicial",
+    :objetivoId_inicial => "objetivoId_inicial",
+    :krId_inicial => "krId_inicial"
   }, :partial => 'cti_plugin/configuracao_plugin'
 
 end
