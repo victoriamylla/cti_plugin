@@ -9,53 +9,43 @@
 
 
     <div class="row mt-6">
-            <div class="col-md-12 col-12">
-              <nav class="nav nav-pills nav-fill col-md-12">
-                  <%= link_to(@monitoramentoProjeto.name, project_path(@monitoramentoProjeto), :class => @monitoramentoProjeto.css_classes + " nav-link active col-md-10").html_safe %>
+      <div class="col-md-12 col-12">
+        <nav class="nav nav-pills nav-fill col-md-12">
+            <%= link_to(@monitoramentoProjeto.name, project_path(@monitoramentoProjeto), :class => @monitoramentoProjeto.css_classes + " nav-link active col-md-10").html_safe %>
 
-                <div class="dropdown col-md-2">
-                  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    + Monitoramentos
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownmenu">
-                    <a class="dropdown-item" href="#">Monitoramento One</a>
-                      <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Monitoramento Two</a>
-                      <div class="dropdown-divider"></div>
-                    <a class="dropdown-item disabled" href="#">Monitoramento Three</a>
-                  </div>
-                </div>                
-              </nav>
-            </div>
+          <div class="dropdown col-md-2">
+            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownmenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              + Monitoramentos
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownmenu">
+              <li><a class="dropdown-item" href="#">Monitoramento One</a></li>
+              <li><a class="dropdown-item" href="#">Monitoramento Two</a></li>
+              <li><a class="dropdown-item disabled" href="#">Monitoramento Three</a></li>
+            </ul>
+          </div>                
+        </nav>
+      </div>
 
-            <p></p>
-            <div class="col-md-12 col-12">
-                <ul class="nav nav-pills mb-3  col-md-8" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                       <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" 
-                          type="button" role="tab" aria-controls="pills-home" aria-selected="true"> 
-                          <%= @objetivoProjeto.name %>
-                      </button>
-                    </li>
-                </ul>
-                <div class="col-6 col-md-2">
-                      <div class="dropdown col-md-2">
-                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          + Objetivos
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownmenu">
-                          <a class="dropdown-item" href="#">Objetivo One</a>
-                            <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Objetivo Two</a>
-                            <div class="dropdown-divider"></div>
-                          <a class="dropdown-item disabled" href="#">Objetivo Three</a>
-                        </div>
-                      </div>                
-                </div>
+      <p></p>
+      <div class="col-md-12 col-12">
+        <nav class="nav nav-pills nav-fill col-md-12">
+          <%= link_to(@objetivoProjeto.name, project_path(@objetivoProjeto), :class => @objetivoProjeto.css_classes + " nav-link active col-md-8").html_safe %>
+
+          <div class="dropdown col-md-2">
+            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownmenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              + Objetivos
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownmenu">
+              <li><a class="dropdown-item" href="#">Objetivo One</a></li>
+              <li><a class="dropdown-item" href="#">Objetivo Two</a></li>
+              <li><a class="dropdown-item disabled" href="#">Objetivo Three</a></li>
+            </ul>                
           </div>
+        </nav>
+     </div>
 
-          <p style="padding-left: 30px; color: #000;"> <%= @objetivoProjeto.description %></p>
-        </div>
+  <p style="padding-left: 30px; color: #000;"> <%= @objetivoProjeto.description %></p>
+  </div>
 
 
   <% projetos = Project.where(parent_id: nil) %>
