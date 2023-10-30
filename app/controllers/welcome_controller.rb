@@ -26,22 +26,26 @@ class WelcomeController < ApplicationController
     @news = News.latest User.current
     # @monitoramentoProjeto = nil
     
+    
     if params[:monitoramentoId].present?
       @monitoramentoProjeto = Project.find(params[:monitoramentoId])
     else
-      @monitoramentoProjeto = Project.find(Setting.plugin_cti_plugin['projetoId_inicial'])
+      #@monitoramentoProjeto = Project.find(Setting.plugin_cti_plugin['projetoId_inicial'])
+      @monitoramentoProjeto = Project.where(parent_id: nil).first
     end
     if params[:objetivoId].present?
       @objetivoProjeto = Project.find(params[:objetivoId])
       @monitoramentoProjeto = @objetivoProjeto.parent
     else
-      @objetivoProjeto = Project.find(Setting.plugin_cti_plugin['objetivoId_inicial'])
+      #@objetivoProjeto = Project.find(Setting.plugin_cti_plugin['objetivoId_inicial'])
+      @objetivoProjeto =  @monitoramentoProjeto.children.first
     end
     if params[:krId].present?
       @krProjeto = Project.find(params[:krId])
       @objetivoProjeto = @krProjeto.parent
     else
-      @krProjeto =  Project.find(Setting.plugin_cti_plugin['krId_inicial'])
+      #@krProjeto =  Project.find(Setting.plugin_cti_plugin['krId_inicial'])
+      @krProjeto = @objetivoProjeto.children.first
     end
   end
 
