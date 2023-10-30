@@ -12,7 +12,7 @@
             <div class="col-md-12 col-12">
               <nav class="nav nav-pills nav-fill">
                   <a class="nav-link active" aria-current="page" href="#"><%= @monitoramentoProjeto.name %></a>
-                  <%= link_to(@monitoramentoProjeto.name, project_path(@monitoramentoProjeto), :class => subProject.css_classes).html_safe %>
+                  <%= link_to(@monitoramentoProjeto.name, project_path(@monitoramentoProjeto), :class => @monitoramentoProjeto.css_classes).html_safe %>
                  
                   <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </nav>
