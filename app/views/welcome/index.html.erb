@@ -18,9 +18,14 @@
               + Monitoramentos
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownmenu">
-              <li><a class="dropdown-item" href="#">Monitoramento One</a></li>
-              <li><a class="dropdown-item" href="#">Monitoramento Two</a></li>
-              <li><a class="dropdown-item disabled" href="#">Monitoramento Three</a></li>
+            <% projetos = Project.where(parent_id: nil) %>
+            <% for project in projetos %>
+              <% if project.any? %>
+                  <li><a class="dropdown-item <%= project.id == @monitoramentoProjeto.id ? 'disabled':''  %>" href="#">
+                    <%= project.name %>
+                  </a></li>
+              <% end %>
+            <% end %>
             </ul>
           </div>                
         </nav>
@@ -51,7 +56,6 @@
                 </a></li>
               <% end %>
             <% end %>
-              <li><a class="dropdown-item disabled" href="#">...</a></li>
             </ul>                
           </div>
         </nav>
