@@ -37,9 +37,12 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownmenu">
             <% subprojectsMonitoramento = @monitoramentoProjeto.children.visible.to_a %>
-              <li><a class="dropdown-item <%= subprojectsMonitoramento.id == @objetivoProjeto.id ? 'disabled':''  %>" href="#">
-                <%= subprojectsMonitoramento.name %>
-              </a></li>
+            <% if subprojectsMonitoramento.any? %>
+          	  <% subprojectsMonitoramento.each do |subProject| %>
+                <li><a class="dropdown-item <%= subProject.id == @objetivoProjeto.id ? 'disabled':''  %>" href="#">
+                  <%= subProject.name %>
+                </a></li>
+              <% end %>
             <% end %>
               <li><a class="dropdown-item disabled" href="#">...</a></li>
             </ul>                
