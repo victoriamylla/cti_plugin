@@ -20,11 +20,9 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownmenu">
             <% projetos = Project.where(parent_id: nil) %>
             <% for project in projetos %>
-              <% if project.any? %>
-                  <li><a class="dropdown-item <%= project.id == @monitoramentoProjeto.id ? 'disabled':''  %>" href="#">
-                    <%= project.name %>
-                  </a></li>
-              <% end %>
+                <li><a class="dropdown-item <%= project.id == @monitoramentoProjeto.id ? 'disabled':''  %>" href="#">
+                  <%= project.name %>
+                </a></li>
             <% end %>
             </ul>
           </div>                
