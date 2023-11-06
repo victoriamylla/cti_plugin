@@ -36,9 +36,12 @@
               + Objetivos
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownmenu">
-              <li><a class="dropdown-item" href="#">Objetivo One</a></li>
-              <li><a class="dropdown-item" href="#">Objetivo Two</a></li>
-              <li><a class="dropdown-item disabled" href="#">Objetivo Three</a></li>
+            <% subprojectsMonitoramento = @monitoramentoProjeto.children.visible.to_a %>
+              <li><a class="dropdown-item <%= subprojectsMonitoramento.id == @objetivoProjeto.id ? 'disabled':''  %>" href="#">
+                <%= subprojectsMonitoramento.name %>
+              </a></li>
+            <% end %>
+              <li><a class="dropdown-item disabled" href="#">...</a></li>
             </ul>                
           </div>
         </nav>
