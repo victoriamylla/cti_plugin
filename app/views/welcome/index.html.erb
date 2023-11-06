@@ -39,8 +39,15 @@
             <% subprojectsMonitoramento = @monitoramentoProjeto.children.visible.to_a %>
             <% if subprojectsMonitoramento.any? %>
           	  <% subprojectsMonitoramento.each do |subProject| %>
+                <% splitName = subProject.name.split %>
+                <% nomeSubProjeto = '' %>
+            	  <% splitName.each_with_index do |name, index| %>
+                  <% nomeSubProjeto += name + ' ' %>
+                  <% break if index > 6 %>
+                <% end %>
+                <% nomeSubProjeto += '...' %>
                 <li><a class="dropdown-item <%= subProject.id == @objetivoProjeto.id ? 'disabled':''  %>" href="#">
-                  <%= subProject.name %>
+                  <%= nomeSubProjeto %>
                 </a></li>
               <% end %>
             <% end %>
