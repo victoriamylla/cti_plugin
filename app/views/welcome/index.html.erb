@@ -137,25 +137,28 @@
                             <div class="ms-3 lh-1">
                               <h5 class="fw-bold mb-1"> 
                                 <a href="#" class="text-inherit">
-                                  <%= tarefa.subject%>
+                                  <%= tarefa.subject %>
                                 </a>
                               </h5>
 
                             </div>
                           </div></td>
                         <td class="align-middle">Indicador 01</td>
-                        <td class="align-middle"><span class="badge bg-success">Alto</span></td>
+                        <td class="align-middle">
+                          <span class="badge bg-success">
+                          <%= tarefa.priority.name %>
+                          </span></td>
                         <td class="align-middle"><div class="avatar-group">
-                          <b><p>SIMONE</p></b>
+                          <b><p> <%= tarefa.assigned_to.is_a?(User) tarefa.assigned_to.name : 'Não designado' %></p></b>
                            
                            
                           </div></td>
                         <td class="align-middle text-dark"><div
-                            class="float-start me-3">15%</div>
+                            class="float-start me-3"><%= tarefa.done_ratio %>%</div>
                           <div class="mt-2">
                             <div class="progress" style="height: 5px;">
                               <div class="progress-bar" role="progressbar"
-                                style="width:15%" aria-valuenow="15"
+                                style="width:<%= tarefa.done_ratio %>%" aria-valuenow="<%= tarefa.done_ratio %>"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                           </div>
