@@ -63,13 +63,9 @@
   </div>
 
 
-  <% projetos = Project.where(parent_id: nil) %>
-  <% for project in projetos %>
-    <% if project.is_public? %>
-    <% end %>
-    <% subprojects = project.children.visible.to_a %>
-      <% if subprojects.any? %>
-    	  <% subprojects.each do |subProject| %>
+  <% subprojectsObjetivos = @objetivoProjeto.children.visible.to_a %>
+  <% if subprojectsObjetivos.any? %>
+    <% subprojectsObjetivos.each do |resultadoChave| %>
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
               <!-- card -->
               <div class="card bg-success rounded-3">
@@ -80,7 +76,7 @@
                     mb-3">
                     <div>
                       <h4 class="text-white">    	  
-                        <%= link_to(subProject.name, project_path(subProject), :class => subProject.css_classes).html_safe %>
+                        <%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %>
                       </h4>
                     </div>
                    
@@ -97,7 +93,7 @@
     
     	  <% end %> 
       <% end %>
-    <% end %>
+
 
 
 
