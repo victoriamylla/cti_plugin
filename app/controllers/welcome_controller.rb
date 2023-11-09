@@ -29,6 +29,7 @@ class WelcomeController < ApplicationController
     
     if params[:monitoramentoId].present?
       @monitoramentoProjeto = Project.find(params[:monitoramentoId])
+      Rails.logger.debug "monitoramentoId present @monitoramentoProjeto: " + @monitoramentoProjeto.id
     else
       #@monitoramentoProjeto = Project.find(Setting.plugin_cti_plugin['projetoId_inicial'])
       @monitoramentoProjeto = Project.where(parent_id: nil).first
@@ -36,6 +37,7 @@ class WelcomeController < ApplicationController
     if params[:objetivoId].present?
       @objetivoProjeto = Project.find(params[:objetivoId])
       @monitoramentoProjeto = @objetivoProjeto.present? ? @objetivoProjeto.parent : nil
+      Rails.logger.debug "objetivoId present @objetivoProjeto: " + @objetivoProjeto.id
     else
       #@objetivoProjeto = Project.find(Setting.plugin_cti_plugin['objetivoId_inicial'])
       @objetivoProjeto =  (@monitoramentoProjeto.present? ? (@monitoramentoProjeto.children.present? ? @monitoramentoProjeto.children.first : nil) : nil)
