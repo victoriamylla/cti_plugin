@@ -42,7 +42,7 @@ class WelcomeController < ApplicationController
     end
     if params[:krId].present?
       @krProjeto = Project.find(params[:krId])
-      @objetivoProjeto = @krProjeto.parent
+      @objetivoProjeto = @krProjeto.present? @krProjeto.parent : nil
     else
       #@krProjeto =  Project.find(Setting.plugin_cti_plugin['krId_inicial'])
       @krProjeto = (@objetivoProjeto.present? (@objetivoProjeto.children.present? @objetivoProjeto.children.first : nil) : nil
