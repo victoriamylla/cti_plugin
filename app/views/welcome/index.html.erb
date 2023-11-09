@@ -20,7 +20,7 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownmenu">
             <% projetos = Project.where(parent_id: nil) %>
             <% for project in projetos %>
-                <li><a class="dropdown-item <%= project.id == @monitoramentoProjeto.id ? 'disabled':''  %>" href="#">
+                <li><a class="dropdown-item <%= project.id == @monitoramentoProjeto.id ? 'disabled':''  %>" href="?monitoramentoId=<%= @monitoramentoProjeto.id %>">
                   <%= project.name %>
                 </a></li>
             <% end %>
@@ -49,7 +49,7 @@
                   <% break if index > 6 %>
                 <% end %>
                 <% nomeSubProjeto += '...' %>
-                <li><a class="dropdown-item <%= subProject.id == @objetivoProjeto.id ? 'disabled':''  %>" href="#">
+                <li><a class="dropdown-item <%= subProject.id == @objetivoProjeto.id ? 'disabled':''  %>" href="?monitoramentoId=<%= @monitoramentoProjeto.id %>?objetivoId=<%= @objetivoProjeto.id %>">
                   <%= nomeSubProjeto %>
                 </a></li>
               <% end %>
@@ -75,9 +75,9 @@
             <!-- heading -->
             <div class="d-flex justify-content-between align-items-center  mb-3">
               <div>
-                <h4 class="text-white">    	  
+                <p class="text-white">    	  
                   <%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %>
-                </h4>
+                </p>
               </div>
             </div>
             <!-- project number -->
