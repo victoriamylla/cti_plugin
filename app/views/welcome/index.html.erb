@@ -49,7 +49,7 @@
                   <% break if index > 6 %>
                 <% end %>
                 <% nomeSubProjeto += '...' %>
-                <li><a class="dropdown-item <%= subProject.id == @objetivoProjeto.id ? 'disabled':''  %>" href="?monitoramentoId=<%= @monitoramentoProjeto.id %>?objetivoId=<%= @objetivoProjeto.id %>">
+                <li><a class="dropdown-item <%= subProject.id == @objetivoProjeto.id ? 'disabled':''  %>" href="?monitoramentoId=<%= @monitoramentoProjeto.id %>&objetivoId=<%= @objetivoProjeto.id %>">
                   <%= nomeSubProjeto %>
                 </a></li>
               <% end %>
