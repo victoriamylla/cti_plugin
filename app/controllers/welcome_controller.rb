@@ -38,14 +38,14 @@ class WelcomeController < ApplicationController
       @monitoramentoProjeto = @objetivoProjeto.present? ? @objetivoProjeto.parent : nil
     else
       #@objetivoProjeto = Project.find(Setting.plugin_cti_plugin['objetivoId_inicial'])
-      @objetivoProjeto =  (@monitoramentoProjeto.present? ? (@monitoramentoProjeto.children.present? ? @monitoramentoProjeto.children.first : nil) : nil
+      @objetivoProjeto =  (@monitoramentoProjeto.present? ? (@monitoramentoProjeto.children.present? ? @monitoramentoProjeto.children.first : nil) : nil)
     end
     if params[:krId].present?
       @krProjeto = Project.find(params[:krId])
       @objetivoProjeto = @krProjeto.present? ? @krProjeto.parent : nil
     else
       #@krProjeto =  Project.find(Setting.plugin_cti_plugin['krId_inicial'])
-      @krProjeto = (@objetivoProjeto.present? ? (@objetivoProjeto.children.present? ? @objetivoProjeto.children.first : nil) : nil
+      @krProjeto = (@objetivoProjeto.present? ? (@objetivoProjeto.children.present? ? @objetivoProjeto.children.first : nil) : nil)
     end
   end
 
