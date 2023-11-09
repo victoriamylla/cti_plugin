@@ -59,7 +59,7 @@
         </nav>
      </div>
 
-  <p style="padding-left: 30px; color: #000;"> <%= @objetivoProjeto.description %></p>
+  <p style="padding-left: 30px; color: #000; font-size: small;"> <%= @objetivoProjeto.description %></p>
   </div>
 
   <div class="container-fluid mt-n22 px-6">
@@ -69,7 +69,7 @@
       <% subprojectsObjetivos.each do |resultadoChave| %>
       <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
       <!-- card -->
-        <div class="card <%= resultadoChave.id == @krProjeto.id ? ' bg-success ':''  %> rounded-3">
+        <div class="card <%= resultadoChave.id == @krProjeto.id ? ' cti-card-selecionado ':' cti-card-nao-selecionado '  %> rounded-3">
           <!-- card body -->
           <div class="card-body">
             <!-- heading -->
