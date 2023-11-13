@@ -32,30 +32,9 @@
   </div>
 
 
-     <div class="col-md-12 col-md-12">
-      <h3> <%= link_to(@monitoramentoProjeto.name, project_path(@monitoramentoProjeto), :class => @monitoramentoProjeto.css_classes + " nav-link active col-md-10").html_safe %></h3>
-     
-
-
-
- 
-    
+       
                    
-          <div class="dropdown">
-            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownmenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              + Monitoramentos
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownmenu">
-            <% projetos = Project.where(parent_id: nil) %>
-            <% for project in projetos %>
-                <li><a class="dropdown-item <%= project.id == @monitoramentoProjeto.id ? 'disabled':''  %>" href="?monitoramentoId=<%= @monitoramentoProjeto.id %>">
-                  <%= project.name %>
-                </a></li>
-            <% end %>
-            </ul>
-          </div>  
-         </nav>
-       </div>
+         
 
       <p></p>
       <div class="col-md-12 col-12">
