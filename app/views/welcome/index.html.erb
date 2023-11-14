@@ -18,22 +18,14 @@
       <div class="menu-drop">
       <button type="button" name="drop">+MONITORAMENTOS</button>
       <div class="drop-content">
-        <a href="#">Link1</a>
-        <a href="#">Link2</a>
-        <a href="#">Link3</a>
-      </div>
-        <div class="dropdown show">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">+ Monitoramentos
-            </button>
-           <ul class="dropdown-menu" aria-labelledby="dropdownmenu">
-            <% projetos = Project.where(parent_id: nil) %>
+          <% projetos = Project.where(parent_id: nil) %>
             <% for project in projetos %>
                 <li><a class="dropdown-item <%= project.id == @monitoramentoProjeto.id ? 'disabled':''  %>" href="?monitoramentoId=<%= @monitoramentoProjeto.id %>">
                   <%= project.name %>
                 </a></li>
             <% end %>
-            </ul>
-          </div>  
+      </div>
+        
 
 
 </div>
