@@ -116,7 +116,7 @@
                                     <div class="card h-100">
                                       <!-- card body  -->
                                       <div class="card-body">
-                                        <div class="d-flex align-items-center
+                                        <div class="align-items-center
                                           justify-content-between">
 
 
@@ -220,78 +220,16 @@
                                       <div class="card-header bg-white border-bottom-0 py-4">
                                         <h4 class="mb-0">Equipe </h4>
                                       </div>
-                                      <!-- table  -->
-                                      <div class="table-responsive">
-                                        <table class="table text-nowrap">
-                                          <thead class="table-light">
-                                            <tr>
-                                              <th>Nome</th>
-                                              <th>Cargo</th>
-                                              <th>Última Atividade</th>
-                                              <th></th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <tr>
-                                              <td class="align-middle">
-                                                <div class="d-flex align-items-center">
-                                                  <div>
-                                                    <img src="assets/images/avatar/avatar.jpg"
-                                                      alt="" class="avatar-md avatar rounded-circle">
-                                                  </div>
-                                                  <div class="ms-3 lh-1">
-                                                    <h5 class="fw-bold mb-1">IVANA</h5>
-                                                    <p class="mb-0">ivana@mulheres.gov.br</p>
-                                                  </div>
-                                                </div>
-                                              </td>
-                                              <td class="align-middle">Coordenadora </td>
-                                              <td class="align-middle">3 Outubro 2023</td>
-                                              <td class="align-middle">
-                                                <div class="dropdown dropstart">
-                                                  <a class="text-muted text-primary-hover" href="#"
-                                                    role="button" id="dropdownTeamOne"
-                                                    data-bs-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    <i class="icon-xxs" data-feather="more-vertical"></i>
-                                                  </a>
-                                                  
-                                                </div>
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td class="align-middle">
-                                                <div class="d-flex align-items-center">
-                                                  <div>
-                                                    <img src="assets/images/avatar/avatar.jpg"
-                                                      alt="" class="avatar-md avatar rounded-circle">
-                                                  </div>
-                                                  <div class="ms-3 lh-1">
-                                                    <h5 class="fw-bold mb-1">Simone</h5>
-                                                    <p class="mb-0">simone@mulheres.gov.br</p>
-                                                  </div>
-                                                </div>
-                                              </td>
-                                              <td class="align-middle">Chefe de Divisão</td>
-                                              <td class="align-middle">04 outubro 2023</td>
-                                              <td class="align-middle">
-                                                <div class="dropdown dropstart">
-                                                  <a class="text-muted text-primary-hover" href="#"
-                                                    role="button" id="dropdownTeamTwo"
-                                                    data-bs-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    <i class="icon-xxs" data-feather="more-vertical"></i>
-                                                  </a>
-                                                  
-                                                </div>
-                                              </td>
-                                            </tr>
-                                            
-                                                 
-                                            
-                                          </tbody>
-                                        </table>
-                                      </div>
+
+  <% if resultadoChave.principals_by_role.any? %>
+  <div class="members box">
+    <h3 class="icon icon-group"><%=l(:label_member_plural)%></h3>
+    <% resultadoChave.principals_by_role.keys.sort.each do |role| %>
+      <p><span class="label"><%= role %>:</span> <%= resultadoChave.principals_by_role[role].sort.collect{|p| link_to_principal(p, :class => p.is_a?(Group) ? 'icon icon-group' : nil)}.join(", ").html_safe %></p>
+    <% end %>
+  </div>
+  <% end %>
+
                                     </div>
                                   </div>
                                 </div>
