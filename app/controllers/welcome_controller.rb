@@ -22,6 +22,8 @@ class WelcomeController < ApplicationController
 
   skip_before_action :check_if_login_required, only: [:robots]
 
+  helper :custom_fields
+
   def index
     @news = News.latest User.current
     # @monitoramentoProjeto = nil
