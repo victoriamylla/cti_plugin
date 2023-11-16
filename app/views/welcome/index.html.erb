@@ -38,15 +38,6 @@
 <p></p>
 <p></p>
 
-
-  
-
-
-
-
-
-
-      
 <div class="accordion" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -63,36 +54,8 @@
          
 
       <p></p>
-      <div class="col-md-12 col-12">
-        <nav class="nav nav-pills nav-fill col-md-12">
-          <%= link_to(@objetivoProjeto.name, project_path(@objetivoProjeto), :class => @objetivoProjeto.css_classes + " nav-link active col-md-8").html_safe %>
-
-          <div class="dropdown col-md-2">
-            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownmenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              + Objetivos
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownmenu">
-            <% subprojectsMonitoramento = @monitoramentoProjeto.children.visible.to_a %>
-            <% if subprojectsMonitoramento.any? %>
-          	  <% subprojectsMonitoramento.each do |subProject| %>
-                <% splitName = subProject.name.split %>
-                <% nomeSubProjeto = '' %>
-            	  <% splitName.each_with_index do |name, index| %>
-                  <% nomeSubProjeto += name + ' ' %>
-                  <% break if index > 6 %>
-                <% end %>
-                <% nomeSubProjeto += '...' %>
-                <li><a class="dropdown-item <%= subProject.id == @objetivoProjeto.id ? 'disabled':''  %>" href="?monitoramentoId=<%= @monitoramentoProjeto.id %>&objetivoId=<%= @objetivoProjeto.id %>">
-                  <%= nomeSubProjeto %>
-                </a></li>
-              <% end %>
-            <% end %>
-            </ul>                
-          </div>
-        </nav>
-     </div>
-
-  <p style="padding-left: 30px; color: #000; font-size: small;"> <%= @objetivoProjeto.description %></p>
+     
+  <h4 style="padding-left: 30px; color: #000; font-size: small;"> <%= @objetivoProjeto.description %></h4>
   </div>
 
   <div class="container-fluid mt-n22 px-6">
