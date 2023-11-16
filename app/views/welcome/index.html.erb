@@ -145,6 +145,7 @@
             :title => l(:label_details) %>
     </h3>
 
+    with_subprojects = Setting.display_subprojects_issues?
     <% trackers = resultadoChave.rolled_up_trackers(with_subprojects).visible %>
 
     <% if trackers.present? %>
