@@ -20,7 +20,7 @@
           </h2>
           <div id="panelMonitoramento-id<%= @monitoramentoProjeto.id %>" class="accordion-collapse collapse show" aria-labelledby="panelMonitoramento-headid<%= @monitoramentoProjeto.id %>">
             <div class="accordion-body">
-             <%= link_to(@objetivoProjeto.name, project_path(@objetivoProjeto), :class => @objetivoProjeto.css_classes + " nav-link active col-md-8").html_safe %>
+             <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= @monitoramentoProjeto.description %></p>
 
             <div class="accordion" id="accordionPanelObjetivos">
                 <div class="accordion-item">
@@ -34,10 +34,29 @@
                      <%= link_to(@objetivoProjeto.name, project_path(@objetivoProjeto), :class => @objetivoProjeto.css_classes + " nav-link active col-md-8").html_safe %>
                      <p></p>
                      <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= @objetivoProjeto.description %></p>
+                    <div class="accordion" id="accordionPanelResultados">
+                    <% subprojectsObjetivos = @objetivoProjeto.children.visible.to_a %>
+                    <% if subprojectsObjetivos.any? %>
+                      <% subprojectsObjetivos.each do |resultadoChave| %>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="panelResultado-headid<%= resultadoChave.id %>">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-panelResultado-id<%= resultadoChave.id %>" aria-expanded="true" aria-controls="panelsStayOpen-panelResultado-id<%= resultadoChave.id %>">
+                                <%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %>
+                            </button>
+                          </h2>
+                          <div id="panelsStayOpen-panelResultado-id<%= resultadoChave.id %>" class="accordion-collapse collapse show" aria-labelledby="panelResultado-headid<%= resultadoChave.id %>">
+                            <div class="accordion-body">
+                                <%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %>
+                                <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= resultadoChave.description %></p>
+                            </div>
+                         </div>
+                        </div>           
+                      <% end %> 
+                    <% end %>
                     </div>
-                 </div>
-                </div>           
-              </div>
+
+
+
             </div>
          </div>
        </div>
@@ -45,38 +64,6 @@
 
 
 
-<p></p>
-
-  <div class="container-fluid mt-n22 px-6">
-    <div class="row">
-    <% subprojectsObjetivos = @objetivoProjeto.children.visible.to_a %>
-    <% if subprojectsObjetivos.any? %>
-      <% subprojectsObjetivos.each do |resultadoChave| %>
-      <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
-      <!-- card -->
-        <div class="card <%= resultadoChave.id == @krProjeto.id ? ' cticardselecionado h-100':' cticardnaoselecionado h-100'  %> rounded-3">
-          <!-- card body -->
-          <div class="card-body">
-            <!-- heading -->
-            <div class="d-flex justify-content-between align-items-center  mb-3">
-              <div>
-                <p class="text-white">    	  
-                  <%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %>
-                </p>
-              </div>
-            </div>
-            <!-- project number -->
-            <div>
-              <h1 class="text-white">80%</h1>
-              <p class="mb-0"><span class="text-white me-2">03 Indicadores</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% end %> 
-    <% end %>
-    </div>
-  </div>
 
 
 <p></p>
