@@ -34,8 +34,10 @@
                   </h2>
                   <div id="panelObjetivos-id<%= objetivo.id %>" class="accordion-collapse collapse show" aria-labelledby="panelObjetivos-headid<%= objetivo.id %>">
                     <div class="accordion-body">
-                     <i class="fa fa-bullseye" style="font-size: 48px; color: #70369E"></i>
-                     <%= link_to(objetivo.name, project_path(objetivo), :class => objetivo.css_classes + " nav-link active ").html_safe %>
+                     <i class="fa fa-bullseye" style="font-size: 48px; color: #70369E; float: left; padding-right: 10px;"></i>
+                     <b>
+                     <%= link_to(objetivo.name, project_path(objetivo), :class => objetivo.css_classes + " nav-link active ").html_safe %>                     
+                     </b>
                      <p></p>
                      <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= objetivo.description %></p>
                     <div class="accordion" id="accordionPanelResultados">
@@ -57,8 +59,8 @@
                                         <!-- card body  -->
                                         <div class="card-body">
                                           <div class="box box-detalhes">
-                                            <i class="fas fa-chart-line" style="font-size: 48px; color: #70369E"></i>
-                                            <%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %>
+                                            <i class="fa fa-line-chart" style="font-size: 48px; color: #70369E; float: left; padding-right: 10px;"></i>
+                                            <b><%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %></b>
                                             <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= resultadoChave.description %></p>
                                           </div>
                                         </div>
