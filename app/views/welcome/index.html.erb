@@ -14,7 +14,7 @@
       <div class="accordion" id="accordionPanelMonitoramento">
         <div class="accordion-item">
           <h3 class="accordion-header" id="panelMonitoramento-headid<%= @monitoramentoProjeto.id %>">
-            <button class="accordion-button-monitoramento buttonMonitoramento" type="button" data-bs-toggle="collapse" data-bs-target="#panelMonitoramento-id<%= @monitoramentoProjeto.id %>" aria-expanded="true" aria-controls="panelMonitoramento-id<%= @monitoramentoProjeto.id %>">
+            <button class="accordion-button buttonMonitoramento" type="button" data-bs-toggle="collapse" data-bs-target="#panelMonitoramento-id<%= @monitoramentoProjeto.id %>" aria-expanded="true" aria-controls="panelMonitoramento-id<%= @monitoramentoProjeto.id %>">
              <h3 style="color:#ffffff;"> <%= link_to(@monitoramentoProjeto.name, project_path(@monitoramentoProjeto), :class => @monitoramentoProjeto.css_classes + " nav-link active").html_safe %></h3>
             </button>
           </h3>
