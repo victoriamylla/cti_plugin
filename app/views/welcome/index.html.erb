@@ -27,6 +27,7 @@
 
             <div class="accordion" id="accordionPanelObjetivos-id<%= objetivo.id %>">
                 <div class="accordion-item">
+                  <i class="fa fa-bullseye" style="font-size:48px;color:#70369E"></i>
                   <h2 class="accordion-header" id="panelObjetivos-headid<%= objetivo.id %>">
                     <button class="accordion-button buttonObjetivo" type="button" data-bs-toggle="collapse" data-bs-target="#panelObjetivos-id<%= objetivo.id %>" aria-expanded="true" aria-controls="panelObjetivos-id<%= objetivo.id %>">
                        <%= link_to(objetivo.name, project_path(objetivo), :class => objetivo.css_classes + " nav-link active").html_safe %>
