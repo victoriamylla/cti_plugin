@@ -14,7 +14,7 @@
       <div class="accordion" id="accordionPanelMonitoramento">
         <div class="accordion-item">
           <h3 class="accordion-header" id="panelMonitoramento-headid<%= @monitoramentoProjeto.id %>">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelMonitoramento-id<%= @monitoramentoProjeto.id %>" aria-expanded="true" aria-controls="panelMonitoramento-id<%= @monitoramentoProjeto.id %>">
+            <button class="accordion-button buttonMonitoramento" type="button" data-bs-toggle="collapse" data-bs-target="#panelMonitoramento-id<%= @monitoramentoProjeto.id %>" aria-expanded="true" aria-controls="panelMonitoramento-id<%= @monitoramentoProjeto.id %>">
               <%= link_to(@monitoramentoProjeto.name, project_path(@monitoramentoProjeto), :class => @monitoramentoProjeto.css_classes + " nav-link active col-md-10").html_safe %>
             </button>
           </h3>
@@ -28,7 +28,7 @@
             <div class="accordion" id="accordionPanelObjetivos-id<%= objetivo.id %>">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="panelObjetivos-headid<%= objetivo.id %>">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelObjetivos-id<%= objetivo.id %>" aria-expanded="true" aria-controls="panelObjetivos-id<%= objetivo.id %>">
+                    <button class="accordion-button buttonObjetivo" type="button" data-bs-toggle="collapse" data-bs-target="#panelObjetivos-id<%= objetivo.id %>" aria-expanded="true" aria-controls="panelObjetivos-id<%= objetivo.id %>">
                        <%= link_to(objetivo.name, project_path(objetivo), :class => objetivo.css_classes + " nav-link active col-md-8").html_safe %>
                     </button>
                   </h2>
@@ -43,7 +43,7 @@
                       <% subprojectsObjetivos.each do |resultadoChave| %>
                         <div class="accordion-item">
                           <h2 class="accordion-header" id="panelResultado-headid<%= resultadoChave.id %>">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-panelResultado-id<%= resultadoChave.id %>" aria-expanded="true" aria-controls="panelsStayOpen-panelResultado-id<%= resultadoChave.id %>">
+                            <button class="accordion-button buttonResultado" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-panelResultado-id<%= resultadoChave.id %>" aria-expanded="true" aria-controls="panelsStayOpen-panelResultado-id<%= resultadoChave.id %>">
                                 <%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %>
                             </button>
                           </h2>
@@ -111,9 +111,13 @@
                                 <br />
                                 <!-- row  -->
                                 <div class="row my-6">
-                                  <div class="col-xl-4 col-lg-12 col-md-12 col-12 mb-6 mb-xl-0">
-                                    <!-- card  -->
+                                  <div class="col-xl-6 col-lg-12 col-md-12 col-12 mb-6 mb-xl-0">
                                     <div class="card h-100">
+                                      <!-- card header  -->
+                                      <div class="card-header bg-white border-bottom-0 py-4">
+                                        <h4 class="mb-0">Atividades</h4>
+                                      </div>
+
                                       <!-- card body  -->
                                       <div class="card-body">
                                         <div class="align-items-center
@@ -124,16 +128,6 @@
 
 
 
-  <% if resultadoChave.homepage.present? || resultadoChave.visible_custom_field_values.any? { |o| o.value.present? } %>
-  <ul>
-  <% unless resultadoChave.homepage.blank? %>
-    <li><span class="label"><%=l(:field_homepage)%>:</span> <%= link_to_if uri_with_safe_scheme?(resultadoChave.homepage), resultadoChave.homepage, resultadoChave.homepage %></li>
-  <% end %>
-  <% render_custom_field_values(resultadoChave) do |custom_field, formatted| %>
-    <li class="<%= custom_field.css_classes %>"><span class="label"><%= custom_field.name %>:</span> <%= formatted %></li>
-  <% end %>
-  </ul>
-  <% end %>
 
   <% if User.current.allowed_to?(:view_issues, resultadoChave) %>
   <div class="issues box">
@@ -214,7 +208,7 @@
                                     </div>
                                   </div>
                                   <!-- card  -->
-                                  <div class="col-xl-8 col-lg-12 col-md-12 col-12">
+                                  <div class="col-xl-6 col-lg-12 col-md-12 col-12">
                                     <div class="card h-100">
                                       <!-- card header  -->
                                       <div class="card-header bg-white border-bottom-0 py-4">
