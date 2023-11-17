@@ -51,13 +51,13 @@
                             <div class="accordion-body">
 
                                <div class="row  mt-6">
-                                  <div class="card card-detalhes">
-                                      <!-- card body  -->
-                                      <div class="card-body"
-                                      <div  class="col-xl-4 col-lg-12 col-md-12 col-12 mb-6 mb-xl-0">
-                                        <%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %>
-                                        <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= resultadoChave.description %></p>
-                                      </div>
+                                  <div  class="col-xl-4 col-lg-12 col-md-12 col-12 mb-6 mb-xl-0">
+                                    <div class="card card-detalhes">
+                                        <!-- card body  -->
+                                        <div class="card-body"
+                                          <%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %>
+                                          <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= resultadoChave.description %></p>
+                                        </div>
                                     </div>
                                   </div>
                                   <div class="col-xl-4 col-lg-12 col-md-12 col-12 mb-6 mb-xl-0">
