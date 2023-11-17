@@ -188,14 +188,13 @@
                                   </div>
                                 </div>
                             </div>
-                         </div>
-                        </div>           
                       <% end %> 
                     <% end %>
                     </div>
                   </div>
                  </div>
                </div>
+            </div>
             <% end %> 
             <% end %>
              </div>
@@ -205,7 +204,6 @@
     </div>
   <p></p>
   </div>
-</div>
 </div>
 
   <% if @news.any? %>
@@ -226,3 +224,4 @@
 <%= auto_discovery_link_tag(:atom, {:controller => 'activities', :action => 'index', :key => User.current.atom_key, :format => 'atom'},
                                    :title => "#{Setting.app_title}: #{l(:label_activity)}") %>
 <% end %>
+</div>
