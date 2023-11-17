@@ -27,7 +27,6 @@
 
             <div class="accordion" id="accordionPanelObjetivos-id<%= objetivo.id %>">
                 <div class="accordion-item">
-                  <i class="fa fa-bullseye" style="font-size:48px;color:#70369E"></i>
                   <h2 class="accordion-header" id="panelObjetivos-headid<%= objetivo.id %>">
                     <button class="accordion-button buttonObjetivo" type="button" data-bs-toggle="collapse" data-bs-target="#panelObjetivos-id<%= objetivo.id %>" aria-expanded="true" aria-controls="panelObjetivos-id<%= objetivo.id %>">
                        <%= link_to(objetivo.name, project_path(objetivo), :class => objetivo.css_classes + " nav-link active").html_safe %>
@@ -35,6 +34,7 @@
                   </h2>
                   <div id="panelObjetivos-id<%= objetivo.id %>" class="accordion-collapse collapse show" aria-labelledby="panelObjetivos-headid<%= objetivo.id %>">
                     <div class="accordion-body">
+                     <i class="fa fa-bullseye" style="font-size: 48px; color: #70369E"></i>
                      <%= link_to(objetivo.name, project_path(objetivo), :class => objetivo.css_classes + " nav-link active ").html_safe %>
                      <p></p>
                      <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= objetivo.description %></p>
@@ -57,6 +57,7 @@
                                         <!-- card body  -->
                                         <div class="card-body">
                                           <div class="box box-detalhes">
+                                            <i class="fas fa-chart-line" style="font-size: 48px; color: #70369E"></i>
                                             <%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %>
                                             <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= resultadoChave.description %></p>
                                           </div>
