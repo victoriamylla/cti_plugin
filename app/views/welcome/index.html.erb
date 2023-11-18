@@ -35,7 +35,6 @@
                   </h2>
                   <div id="panelObjetivos-id<%= objetivo.id %>" class="accordion-collapse collapse show" aria-labelledby="panelObjetivos-headid<%= objetivo.id %>">
                     <div class="accordion-body">
-                     <i class="fa fa-bullseye" style="font-size: 48px; color: #ff0000; float: left; padding-right: 10px;"></i>
                      <b>
                      <%= link_to(objetivo.name, project_path(objetivo), :class => objetivo.css_classes + " nav-link active ").html_safe %>                     
                      </b>
@@ -61,7 +60,6 @@
                                         <!-- card body  -->
                                         <div class="card-body">
                                           <div class="box box-detalhes">
-                                            <i class="fa fa-line-chart" style="font-size: 24px; color: #ff0000; float: left; padding-right: 10px;"></i>
                                             <b><%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %></b>
                                             <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= resultadoChave.description %></p>
                                           </div>
@@ -79,7 +77,7 @@
                                             <% cond = resultadoChave.project_condition(with_subprojects) %>
                                             <% trackers = resultadoChave.rolled_up_trackers(with_subprojects).visible %>
                                             <% if trackers.present? %>
-                                            <table class="list issue-report">
+                                            <table class="list issue-report" style='font-size: 0.9em'>
                                               <thead>
                                                 <tr>
                                                   <th></th>
